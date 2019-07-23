@@ -63,18 +63,19 @@ public class LengthOfLongestSubstring_3 {
 
     /**
      * 优化的滑动窗口,使用hashmap代替hashset
-     * 使用hahset时，字符串s中的每个字符都没指针i和j访问两次，其真实的时间复杂度为：O(2n)
+     * 使用hahset时，字符串s中的每个字符都被指针i和j访问两次，其真实的时间复杂度为：O(2n)
      * 使用hashmap做优化，当s[j] 在[i,j）范围内有重复的字符时，直接跳过该[i,j重复]范围内的所有元素，变为[j重复+1, j)
      * @param s
      * @return
      */
     public static int lengthOfLongestSubstring_hashMap(String s) {
 
+        //定义map,key为字符串中的字符，值窗口
         Map<Character, Integer> map = new HashMap<>();
 
         int result = 0;
 
-        for (int i=0, j=0; j< s.length(); j++) {
+        for (int i=0, j=0; j<s.length(); j++) {
 
             //如果遇到重复的元素
             if (map.containsKey(s.charAt(j))) {
@@ -87,16 +88,13 @@ public class LengthOfLongestSubstring_3 {
             }
 
             //如果不包含重复元素
-            //将元素添加的窗口
+            //将元素添加到窗口
             map.put(s.charAt(j), j + 1);
             //修改窗口大小
             result = Math.max(result, j - i + 1);
         }
         return result;
     }
-
-
-
 
 
     public static void main(String[] args) {
