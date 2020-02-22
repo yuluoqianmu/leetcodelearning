@@ -7,7 +7,7 @@ import com.shml.leetcode.common.ListNode;
  */
 public class reverseList_206 {
 
-    public ListNode reverseList(ListNode head) {
+    public static  ListNode reverseList(ListNode head) {
 
         ListNode cur = head;
         ListNode pre = null;
@@ -22,6 +22,19 @@ public class reverseList_206 {
         }
         return pre;
 
+    }
 
+
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(1);
+        for (int i = 2; i<=5; i++) {
+            l1.addNode(i);
+        }
+        l1.printList();
+        System.out.println(" ");
+
+        ListNode result = reverseList(l1);
+
+        result.printList();
     }
 }
