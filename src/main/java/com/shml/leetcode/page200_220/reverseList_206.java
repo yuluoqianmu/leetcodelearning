@@ -24,6 +24,21 @@ public class reverseList_206 {
 
     }
 
+    /**递归法反转链表
+     *
+     * @param head
+     */
+    public static  ListNode reverseList_2(ListNode head) {
+        if (head.next == null) {
+            return head;
+        }
+        ListNode last = reverseList_2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
+
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
@@ -33,7 +48,7 @@ public class reverseList_206 {
         l1.printList();
         System.out.println(" ");
 
-        ListNode result = reverseList(l1);
+        ListNode result = reverseList_2(l1);
 
         result.printList();
     }
