@@ -5,7 +5,7 @@ public class Singleton {
     //vloatile防止重排序
     private static volatile Singleton singleton = null;
 
-    public Singleton() { }
+    private Singleton() { }
 
     public static Singleton getInstance() {
 
