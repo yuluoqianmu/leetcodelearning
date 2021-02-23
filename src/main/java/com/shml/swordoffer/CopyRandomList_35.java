@@ -1,7 +1,5 @@
 package com.shml.swordoffer;
 
-import com.shml.leetcode.common.ListNode;
-
 import java.util.HashMap;
 import java.util.Map;
 
