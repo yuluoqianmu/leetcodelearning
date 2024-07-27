@@ -20,9 +20,6 @@ public class Subset_78 {
     public static void dfs(List<Integer> state, int[] nums, int index, List<List<Integer>> res) {
 
         for (int i = index; i < nums.length; i++) {
-            if (i > index && nums[i] == nums[i-1]) {
-                continue;
-            }
             state.add(nums[i]);
             res.add(new ArrayList<>(state));
             dfs(state, nums, i+1, res);
